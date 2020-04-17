@@ -15,7 +15,7 @@ class NewPost extends Component {
             body: this.state.content,
             author: this.state.author
         }
-        axios.post('https://jsonplaceholder.typicode.com/posts/', postData)
+        axios.post('/posts/', postData)
             .then(response => {
                 console.log(response);
             });
