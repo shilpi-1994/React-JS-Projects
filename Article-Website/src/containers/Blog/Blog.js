@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Posts from './Posts/Posts';
-import NewPost from './NewPost/NewPost';
 import './Blog.css';
+import aysncComponent from '../../hoc/asyncComponent';
+
+const AsynchNewPost = aysncComponent(() => {
+    return import('./NewPost/NewPost');
+});
 
 class Blog extends Component {
+    state = {
+        auth: true
+    }
     render () {
         return (
             <div className="Blog">
@@ -28,9 +35,10 @@ class Blog extends Component {
                     </nav>
                 </header>
                 <Switch>
-                    <Route path="/new-post" component={NewPost}/>
+                    {this.state.auth ? <Route path="/new-post" component={AsynchNewPost}/> : null}
                     <Route path="/posts/" component={Posts}/>
-                    <Redirect from="/" to="/posts"/>
+                    <Route render={() => <h1>Page not found</h1>}/>
+                    {/* <Redirect from="/" to="/posts"/> */}
                 </Switch>
             </div>
         );
