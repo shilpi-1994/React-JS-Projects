@@ -4,6 +4,11 @@
     margin: auto;
 }
 
+.CheckoutSummary h1{
+    color: black;
+    font-size: 25px;
+}
+
 @media (min-width: 600px) {
     .CheckoutSummary{
         width: 500px;
