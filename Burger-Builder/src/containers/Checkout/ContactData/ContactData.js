@@ -51,8 +51,10 @@ class ContactData extends Component {
                 deliveryMethod: {
                     elementType: 'select', 
                     elementConfig: {
-                        options: [{value: 'fastest', displayValue: 'Fastest'}],
-                        options: [{value: 'cheapest', displayValue: 'Cheapest'}]
+                        options: [
+                            {value: 'fastest', displayValue: 'Fastest'},
+                            {value: 'cheapest', displayValue: 'Cheapest'}
+                        ]
                     },
                     value: ''
                 }
@@ -83,7 +85,7 @@ class ContactData extends Component {
     }
 
     render() {
-        let formElementsArray = [];
+        const formElementsArray = [];
         for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
